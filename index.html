@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Viartual Piano</title>
+    <link ref="stylesheet" href="style.css">
+    <style>
+        body{
+            background-color: burlywood;
+        }
+        .container{
+            width: 50%;
+            height: 50vh;
+            margin: 25vh auto;
+            text-align: center;
+        }
+        .white-keys kbd{
+            text-align: center;
+            font-size: 1.5rem;
+            margin-left: 0;
+            display: inline-block;
+            width: 12%;
+            background-color: white;
+            padding: 200px 0 60px;
+            border: 2px solid silver;
+        }
+        .black-keys kbd {
+            color: white;
+            text-align: center;
+            width: 6%;
+            padding: 100px 0 30px;
+            background-color: black;
+            display: inline-block;
+            position: relative;
+            bottom: 290px;
+            margin: 0 8px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="white-keys">
+        <kbd>A</kbd>
+        <kbd>S</kbd>
+        <kbd>D</kbd>
+        <kbd>F</kbd>
+        <kbd>G</kbd>
+        <kbd>H</kbd>
+        <kbd>J</kbd>
+    </div>
+    <div class="black-keys">
+            <kbd>W</kbd>
+            <kbd>E</kbd>
+          <kbd>T</kbd>
+          <kbd>Y</kbd>
+          <kbd>U</kbd>
+    </div>
+</div>
+<script>
+    document.addEventListener("keypress", function(event){
+        var keysArr = ["KeyA", "KeyS", "KeyD", "KeyF", "KeyG", "KeyH", "KeyJ", "KeyW", "KeyE", "KeyT", "KeyY", "KeyU"];
+        if(keysArr.includes(event.code)) {
+            let audio = new Audio("audio/"+event.key.toUpperCase()+".mp3");
+            audio.play();
+        } else {
+            console.log("Warning another key was pressed");
+        }
+    });
+</script>
+</body>
+</html>
